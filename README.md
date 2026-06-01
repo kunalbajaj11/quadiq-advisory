@@ -29,9 +29,16 @@ Or use any static file server (e.g. `npx serve .`).
 
 ## Contact (on site)
 
-- **CA Rajat Garg:** 7827279427 · carajatgargqiq@gmail.com · [WhatsApp](https://wa.me/917827279427)
-- **Office:** 27-28, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122015
-- **Form:** Submissions go to `carajatgargqiq@gmail.com` via [FormSubmit](https://formsubmit.co) — confirm the activation email on first deploy.
+| Name | Mobile | Email |
+|------|--------|-------|
+| CA Ankit Gupta | 7827276427 | caankitguptaqiq@gmail.com |
+| CA Rajat Garg | 7827279427 | carajatgargqiq@gmail.com |
+| Anshum Ahuja | 8860403399 | — |
+| Ankit Ahuja | 8860150035 | — |
+
+**WhatsApp** and the **contact form** use CA Rajat Garg (7827279427 · carajatgargqiq@gmail.com).
+
+**Office:** 27-28, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122015
 
 ## SEO
 
