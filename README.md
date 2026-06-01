@@ -29,9 +29,9 @@ Or use any static file server (e.g. `npx serve .`).
 
 ## Contact (on site)
 
-- **Anshum:** +91 88604 03399
-- **Ankit:** +91 88601 50035
+- **CA Rajat Garg:** 7827279427 · carajatgargqiq@gmail.com · [WhatsApp](https://wa.me/917827279427)
 - **Office:** 27-28, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122015
+- **Form:** Submissions go to `carajatgargqiq@gmail.com` via [FormSubmit](https://formsubmit.co) — confirm the activation email on first deploy.
 
 ## SEO
 
@@ -52,10 +52,66 @@ python3 scripts/generate-seo.py
 
 Replace `public/assets/og-image.jpg` with a **1200×630** image for social link previews.
 
-## Deploy
+## Deploy on Cloudflare Pages
 
-Upload the project root to any static host (Netlify, Vercel, GitHub Pages, S3, etc.). No build step required.
+This site is static (no build step). Use **Cloudflare Pages** with your domain **quadiqadvisory.com**.
 
-Ensure `robots.txt` and `sitemap.xml` are served from the site root. Submit the sitemap in [Google Search Console](https://search.google.com/search-console).
+### Option A — Deploy from Git (recommended)
 
-To wire the contact form to email, connect it to Formspree, Netlify Forms, or your backend API.
+1. Push this folder to **GitHub** or **GitLab** (if not already):
+   ```bash
+   cd "/Users/kunalbajaj/Documents/QUAD IQ"
+   git add .
+   git commit -m "Prepare site for Cloudflare Pages"
+   git push origin main
+   ```
+
+2. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+
+3. Select your repository and use these settings:
+
+   | Setting | Value |
+   |---------|--------|
+   | **Production branch** | `main` |
+   | **Framework preset** | None |
+   | **Build command** | *(leave empty)* |
+   | **Build output directory** | `/` *(project root — where `index.html` lives)* |
+
+4. Click **Save and Deploy**. You’ll get a `*.pages.dev` URL to preview.
+
+5. **Custom domain:** In the Pages project → **Custom domains** → **Set up a custom domain** → add `quadiqadvisory.com` and `www.quadiqadvisory.com`.
+
+6. **DNS** (if the domain is already on Cloudflare):
+   - **quadiqadvisory.com** → Pages will add the required records automatically, or use a **CNAME** to `<your-project>.pages.dev` (flattened to A at apex).
+   - **www** → CNAME to `<your-project>.pages.dev`, or use a **Redirect Rule** (below).
+
+7. **Redirect www → apex** (canonical URL is `https://quadiqadvisory.com`):
+   - **Rules** → **Redirect Rules** → Create rule:
+     - If hostname equals `www.quadiqadvisory.com`
+     - Then **Dynamic** redirect to `https://quadiqadvisory.com${uri.path}` with status **301**
+   - The repo’s `_redirects` file also works on Cloudflare Pages for path redirects.
+
+8. After go-live, submit **https://quadiqadvisory.com/sitemap.xml** in [Google Search Console](https://search.google.com/search-console).
+
+### Option B — Direct upload (no Git)
+
+1. **Workers & Pages** → **Create** → **Pages** → **Upload assets**.
+2. Zip the project (include `index.html`, `css/`, `js/`, `public/`, `robots.txt`, `sitemap.xml`, `_redirects`, `_headers`, `site.webmanifest` at the **root** of the zip).
+3. Upload and attach **quadiqadvisory.com** under Custom domains.
+
+### Cloudflare settings checklist
+
+- **SSL/TLS** → **Full (strict)** (default once proxied).
+- **Always Use HTTPS** → On.
+- **Automatic HTTPS Rewrites** → On.
+- **Brotli** → On (faster loads).
+
+### Contact form on Cloudflare
+
+The form uses **FormSubmit** (`formsubmit.co`) to deliver enquiries to `carajatgargqiq@gmail.com`. After first deploy, open the activation link sent to that inbox so submissions are enabled.
+
+## Other hosts
+
+You can also deploy to Netlify, Vercel, or GitHub Pages. The `_redirects` file is tailored for Netlify/Cloudflare-style redirects.
+
+Ensure `robots.txt` and `sitemap.xml` are served from the site root.

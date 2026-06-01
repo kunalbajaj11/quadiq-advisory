@@ -42,11 +42,48 @@
   }
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const formError = document.getElementById("form-error");
+    const submitBtn = document.getElementById("form-submit-btn");
+    const formEndpoint = form.getAttribute("action");
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (formNote) formNote.hidden = false;
-      form.reset();
-      form.querySelector("button[type=submit]")?.blur();
+      if (!formEndpoint) return;
+
+      if (formNote) formNote.hidden = true;
+      if (formError) formError.hidden = true;
+
+      const originalLabel = submitBtn?.textContent;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch(formEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) throw new Error("Form submit failed");
+
+        if (formNote) formNote.hidden = false;
+        form.reset();
+      } catch {
+        if (formError) formError.hidden = false;
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel || "Submit enquiry";
+        }
+        submitBtn?.blur();
+      }
     });
   }
 
