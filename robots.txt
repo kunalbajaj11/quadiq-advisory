@@ -1,0 +1,9 @@
+# Generated from seo/site.config.json — do not edit by hand
+
+User-agent: *
+Allow: /
+
+Disallow: /scripts/
+Disallow: /seo/
+
+Sitemap: https://quadiqadvisory.com/sitemap.xml

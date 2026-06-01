@@ -1,0 +1,42 @@
+{
+  "siteName": "QuadIQ Advisory",
+  "legalName": "QuadIQ Advisory Private Limited",
+  "siteUrl": "https://quadiqadvisory.com",
+  "tagline": "Global Reach · Local Depth",
+  "description": "QuadIQ Advisory Private Limited offers audit & assurance, tax advisory, accounting outsourcing, financial advisory, and GRC services in Gurugram, India. Partner-led CA firm for growing enterprises and corporates.",
+  "locale": "en_IN",
+  "language": "en",
+  "email": "",
+  "telephone": "+91-8860403399",
+  "address": {
+    "streetAddress": "27-28, Phase IV, Udyog Vihar, Sector 18",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122015",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "latitude": 28.4950,
+    "longitude": 77.0890
+  },
+  "keywords": [
+    "chartered accountant Gurugram",
+    "audit and assurance India",
+    "tax advisory Gurugram",
+    "financial advisory Haryana",
+    "IND AS audit",
+    "QuadIQ Advisory",
+    "CA firm Udyog Vihar",
+    "accounting outsourcing India",
+    "GRC advisory",
+    "corporate tax consultant Gurugram"
+  ],
+  "social": {
+    "twitter": "",
+    "linkedin": "",
+    "facebook": ""
+  },
+  "ogImage": "/public/assets/og-image.jpg",
+  "foundingDate": "",
+  "priceRange": "$$"
+}

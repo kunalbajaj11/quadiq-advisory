@@ -1,0 +1,4 @@
+# Netlify — force HTTPS and apex domain (canonical: quadiqadvisory.com)
+http://quadiqadvisory.com/*    https://quadiqadvisory.com/:splat    301!
+https://www.quadiqadvisory.com/*  https://quadiqadvisory.com/:splat  301!
+http://www.quadiqadvisory.com/*   https://quadiqadvisory.com/:splat  301!

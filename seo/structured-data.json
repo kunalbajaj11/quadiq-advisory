@@ -1,0 +1,143 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://quadiqadvisory.com/#organization",
+      "name": "QuadIQ Advisory Private Limited",
+      "alternateName": "QuadIQ Advisory",
+      "url": "https://quadiqadvisory.com/",
+      "logo": "https://quadiqadvisory.com/public/assets/logo.png",
+      "image": "https://quadiqadvisory.com/public/assets/og-image.jpg",
+      "description": "Partner-led chartered accountancy and advisory firm offering audit & assurance, tax, financial advisory, and GRC services in Gurugram, India.",
+      "slogan": "Global Reach · Local Depth",
+      "telephone": "+91-8860403399",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27-28, Phase IV, Udyog Vihar, Sector 18",
+        "addressLocality": "Gurugram",
+        "addressRegion": "Haryana",
+        "postalCode": "122015",
+        "addressCountry": "IN"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "knowsAbout": [
+        "Audit and Assurance",
+        "Tax Advisory",
+        "Financial Advisory",
+        "Governance Risk and Compliance",
+        "IND AS",
+        "IFRS"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://quadiqadvisory.com/#business",
+      "name": "QuadIQ Advisory Private Limited",
+      "url": "https://quadiqadvisory.com/",
+      "image": "https://quadiqadvisory.com/public/assets/og-image.jpg",
+      "telephone": "+91-8860403399",
+      "priceRange": "$$",
+      "parentOrganization": {
+        "@id": "https://quadiqadvisory.com/#organization"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27-28, Phase IV, Udyog Vihar, Sector 18",
+        "addressLocality": "Gurugram",
+        "addressRegion": "Haryana",
+        "postalCode": "122015",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.495,
+        "longitude": 77.089
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Advisory Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Audit & Assurance",
+              "description": "Independent financial statement audits, IND AS, IFRS/US GAAP conversions, and statutory certification."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tax Advisory",
+              "description": "Direct and indirect tax planning, compliance, transfer pricing, and representation."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Financial Advisory",
+              "description": "Valuations, transaction advisory, due diligence, and restructuring support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Governance, Risk & Compliance",
+              "description": "Internal audit, risk assessment, and corporate governance advisory."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://quadiqadvisory.com/#website",
+      "url": "https://quadiqadvisory.com/",
+      "name": "QuadIQ Advisory",
+      "description": "Audit, tax, and financial advisory services in Gurugram.",
+      "publisher": {
+        "@id": "https://quadiqadvisory.com/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://quadiqadvisory.com/#webpage",
+      "url": "https://quadiqadvisory.com/",
+      "name": "QuadIQ Advisory | Audit, Tax & Financial Advisory",
+      "isPartOf": {
+        "@id": "https://quadiqadvisory.com/#website"
+      },
+      "about": {
+        "@id": "https://quadiqadvisory.com/#organization"
+      },
+      "description": "QuadIQ Advisory Private Limited — audit, assurance, tax, and financial advisory in Gurugram. Global reach, local depth.",
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://quadiqadvisory.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://quadiqadvisory.com/"
+        }
+      ]
+    }
+  ]
+}

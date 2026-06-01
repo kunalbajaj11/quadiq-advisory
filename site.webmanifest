@@ -1,0 +1,23 @@
+{
+  "name": "QuadIQ Advisory Private Limited",
+  "short_name": "QuadIQ",
+  "description": "Audit, tax, and financial advisory in Gurugram, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c1220",
+  "theme_color": "#0c1220",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/public/assets/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/assets/logo.png",
+      "sizes": "466x243",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
