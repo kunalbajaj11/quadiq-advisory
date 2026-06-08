@@ -29,14 +29,13 @@ Or use any static file server (e.g. `npx serve .`).
 
 ## Contact (on site)
 
-| Name | Mobile | Email |
-|------|--------|-------|
-| CA Ankit Gupta | 7827276427 | caankitguptaqiq@gmail.com |
-| CA Rajat Garg | 7827279427 | carajatgargqiq@gmail.com |
-| Anshum Ahuja | 8860403399 | — |
-| Ankit Ahuja | 8860150035 | — |
+| Type | Value |
+|------|-------|
+| Phone | +91 7827279427 |
+| Phone | +91 7827276427 |
+| Email | Info@quadiqadvisory.com |
 
-**WhatsApp** and the **contact form** use CA Rajat Garg (7827279427 · carajatgargqiq@gmail.com).
+**WhatsApp** and the **contact form** use +91 7827279427 · Info@quadiqadvisory.com.
 
 **Office:** 27-28, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122015
 
@@ -115,7 +114,7 @@ This site is static (no build step). Use **Cloudflare Pages** with your domain *
 
 ### Contact form on Cloudflare
 
-The form uses **FormSubmit** (`formsubmit.co`) to deliver enquiries to `carajatgargqiq@gmail.com`. After first deploy, open the activation link sent to that inbox so submissions are enabled.
+The form uses **FormSubmit** (`formsubmit.co`) to deliver enquiries to `Info@quadiqadvisory.com`. After first deploy, open the activation link sent to that inbox so submissions are enabled.
 
 ## Other hosts
 

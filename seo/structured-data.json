@@ -12,7 +12,7 @@
       "description": "Partner-led chartered accountancy and advisory firm offering audit & assurance, tax, financial advisory, and GRC services in Gurugram, India.",
       "slogan": "Global Reach · Local Depth",
       "telephone": "+91-7827279427",
-      "email": "carajatgargqiq@gmail.com",
+      "email": "Info@quadiqadvisory.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "27-28, Phase IV, Udyog Vihar, Sector 18",
@@ -41,7 +41,7 @@
       "url": "https://quadiqadvisory.com/",
       "image": "https://quadiqadvisory.com/public/assets/og-image.jpg",
       "telephone": "+91-7827279427",
-      "email": "carajatgargqiq@gmail.com",
+      "email": "Info@quadiqadvisory.com",
       "priceRange": "$$",
       "parentOrganization": {
         "@id": "https://quadiqadvisory.com/#organization"

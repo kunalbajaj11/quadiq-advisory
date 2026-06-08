@@ -898,12 +898,8 @@ a {
   box-shadow: var(--shadow-soft);
 }
 
-.partner-card--featured .partner-role::after {
-  content: " · WhatsApp & enquiries";
-  letter-spacing: 0.08em;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: none;
+.contact-direct {
+  margin-bottom: 1.5rem;
 }
 
 .whatsapp-block {
