@@ -147,7 +147,7 @@
   }
 
   /* Scroll reveal */
-  const revealEls = document.querySelectorAll(".reveal, .service-card, .approach-card");
+  const revealEls = document.querySelectorAll(".reveal, .service-card, .approach-card, .blog-card, .faq-item");
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
