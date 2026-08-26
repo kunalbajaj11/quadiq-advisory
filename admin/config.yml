@@ -1,0 +1,123 @@
+backend:
+  name: github
+  repo: kunalbajaj11/quadiq-advisory
+  branch: main
+  base_url: https://quadiq-cms-auth.kunalbajaj19.workers.dev
+  auth_endpoint: auth
+
+# Where images uploaded from the CMS are stored / served from.
+media_folder: "public/assets/blog"
+public_folder: "/public/assets/blog"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "content/posts"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: "title"
+    summary: "{{title}} — {{date}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "This also becomes the page's web address, so it can't be changed after the post is first saved."
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Audit & Assurance"
+          - "Tax Advisory"
+          - "Accounting & Outsourcing"
+          - "Financial Advisory"
+          - "Governance, Risk & Compliance"
+          - "Specialty Advisory"
+          - "Advisory"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: true
+
+      - label: "Read Time"
+        name: "readTime"
+        widget: "string"
+        default: "5 min read"
+        hint: "Shown next to the date on the article, e.g. \"5 min read\""
+
+      - label: "Cover Image"
+        name: "image"
+        widget: "image"
+        hint: "Shown on the blog listing card and at the top of the article"
+
+      - label: "Card Summary"
+        name: "excerpt"
+        widget: "text"
+        hint: "1–2 sentences shown on the blog listing page"
+
+      - label: "Search Description"
+        name: "metaDescription"
+        widget: "text"
+        hint: "Shown under the title in Google search results — aim for 150–160 characters"
+
+      - label: "Article Body"
+        name: "body"
+        widget: "markdown"
+        buttons: ["bold", "italic", "link", "heading-two", "bulleted-list"]
+        editor_components: []
+
+      - label: "Call-to-action banner (optional)"
+        name: "cta"
+        widget: "object"
+        required: false
+        collapsed: true
+        hint: "Shown at the end of the article. Leave blank to use the default \"Contact us\" banner."
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Text", name: "text", widget: "string" }
+          - { label: "Primary Button Label", name: "primaryLabel", widget: "string" }
+          - label: "Primary Button Link"
+            name: "primaryHref"
+            widget: "string"
+            hint: "e.g. ../services/tax-advisory.html or ../index.html#contact"
+          - { label: "Secondary Button Label", name: "secondaryLabel", widget: "string" }
+          - { label: "Secondary Button Link", name: "secondaryHref", widget: "string" }
+
+      - label: "Advanced: search-engine title overrides (optional)"
+        name: "seo"
+        widget: "object"
+        required: false
+        collapsed: true
+        hint: "Leave blank to reuse the Title above for all of these."
+        fields:
+          - { label: "Browser Tab / Google Title", name: "metaTitle", widget: "string", required: false }
+          - { label: "Social Share Title", name: "ogTitle", widget: "string", required: false }
+          - { label: "Breadcrumb Label", name: "breadcrumbLabel", widget: "string", required: false, hint: "A short version of the title for the small navigation trail at the top of the article" }
+
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - name: "faq"
+        label: "Frequently Asked Questions"
+        file: "content/faq.json"
+        fields:
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - label: "Answer"
+                name: "answer"
+                widget: "markdown"
+                buttons: ["bold", "italic", "link"]
+                editor_components: []

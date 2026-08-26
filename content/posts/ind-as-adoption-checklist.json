@@ -1,0 +1,23 @@
+{
+  "title": "IND AS adoption: a practical checklist for mid-market companies",
+  "seo": {
+    "metaTitle": "IND AS Adoption Checklist for Mid-Market Companies | QuadIQ Advisory",
+    "ogTitle": "IND AS Adoption Checklist | QuadIQ Advisory",
+    "breadcrumbLabel": "IND AS adoption checklist"
+  },
+  "category": "Audit & Assurance",
+  "date": "2026-06-15",
+  "readTime": "6 min read",
+  "image": "public/assets/carousel/slide-2.jpg",
+  "excerpt": "Key milestones, common pitfalls, and how to prepare your finance team for a smooth transition to Indian Accounting Standards.",
+  "metaDescription": "A practical checklist for mid-market companies transitioning to Indian Accounting Standards (IND AS) — milestones, pitfalls, and preparation tips.",
+  "body": "Transitioning from Indian GAAP to Indian Accounting Standards (IND AS) is a significant undertaking — especially for mid-market companies that may not have a dedicated technical accounting team. A structured approach reduces surprises at year-end and builds confidence with auditors, lenders, and investors.\n\n## 1. Confirm your applicability and timeline\n\nStart by verifying whether IND AS applies to your entity based on net worth, listing status, and group structure. Map the mandatory first-time adoption date and identify any voluntary early adoption considerations with your board and auditors.\n\n## 2. Perform a gap analysis\n\nCompare your current accounting policies against IND AS requirements. Focus areas typically include revenue recognition, financial instruments, leases, employee benefits, business combinations, and impairment testing. Document each gap and the remediation plan.\n\n## 3. Build your opening balance sheet\n\nIND AS 101 requires a reliable opening balance sheet on the date of transition. Gather historical data, restate prior-period comparatives where required, and quantify the impact on equity and retained earnings. This step often takes longer than finance teams expect.\n\n## 4. Upgrade systems and controls\n\nEnsure your ERP and reporting tools can capture the data IND AS demands — fair values, lease schedules, expected credit losses, and segment disclosures. Strengthen internal controls around estimates and judgements that auditors will scrutinise.\n\n## 5. Train your team and align stakeholders\n\nFinance staff, tax advisors, and business unit heads all need to understand what changes and why. Brief the audit committee and lenders early on material adjustments so there are no surprises in covenant discussions or investor reporting.\n\n## Common pitfalls to avoid\n\n- Underestimating the time needed for opening balance sheet preparation\n- Treating IND AS as a year-end exercise rather than an ongoing reporting change\n- Neglecting tax implications of accounting policy changes\n- Insufficient documentation of management judgements and estimates\n\nPartner-led advisory support can compress the learning curve and help you avoid costly rework. If your organisation is approaching an IND AS transition, [reach out to our audit & assurance team](../index.html#contact) for a scoping conversation.",
+  "cta": {
+    "heading": "Need help with IND AS transition?",
+    "text": "Our audit specialists guide mid-market companies through adoption, conversion, and first-year reporting.",
+    "primaryLabel": "Audit & Assurance",
+    "primaryHref": "../services/audit-assurance.html",
+    "secondaryLabel": "Contact us",
+    "secondaryHref": "../index.html#contact"
+  }
+}

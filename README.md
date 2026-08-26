@@ -27,6 +27,35 @@ Or use any static file server (e.g. `npx serve .`).
 - `css/styles.css` — responsive styles
 - `js/main.js` — navigation, form handling, scroll animations
 
+## Content (FAQs & blog posts)
+
+### For a non-technical editor: use `/admin`
+
+Go to `https://quadiqadvisory.com/admin`, log in with GitHub, and use the
+**Blog Posts** and **FAQ** forms to add or edit content — no code, no JSON,
+no git. Clicking **Publish** commits the change and Cloudflare Pages
+redeploys automatically (usually live within a minute or two).
+
+This needs a one-time setup before it works — see
+[`admin/oauth-worker/README.md`](admin/oauth-worker/README.md) — and the
+editor needs a GitHub account added as a repo collaborator (also covered
+there).
+
+### For a developer: edit the JSON directly
+
+Content lives in two places, both plain JSON:
+
+- **FAQs** — `content/faq.json`, an object `{ "items": [{ "question", "answer" }, ...] }`. The homepage fetches it at runtime and renders the accordion and its `FAQPage` schema directly — just save and refresh, no build step. `answer` supports a small Markdown subset (`**bold**`, `*italic*`, `[link text](url)`).
+- **Blog posts** — one file per post in `content/posts/`, e.g. `content/posts/my-post.json`. The filename becomes the URL slug (`blog/my-post.html`). See any existing file for the shape: `title`, `category`, `date`, `readTime`, `image`, `excerpt`, `metaDescription`, `body` (Markdown — `##` headings, `- ` bullet lists, `**bold**`, `*italic*`, `[link](url)`), and an optional `cta` object. After editing, run:
+  ```bash
+  python3 scripts/generate-blog.py
+  ```
+  This writes the static `blog/<slug>.html` page (own title/description/OG tags for SEO and link previews), rebuilds the card grid on `blog/index.html`, and updates the blog entries in `sitemap.xml`. Commit everything, including the generated HTML.
+
+Plain text fields (title, category, excerpt, etc.) are typed normally — the generator HTML-escapes them automatically, so `&` doesn't need to be written as `&amp;`.
+
+**Cloudflare Pages must run `python3 scripts/generate-blog.py` as its build command** (see the Cloudflare Pages section below) so posts published via `/admin` also get turned into static pages automatically, without anyone running the script by hand.
+
 ## Contact (on site)
 
 | Type | Value |
@@ -60,7 +89,7 @@ Replace `public/assets/og-image.jpg` with a **1200×630** image for social link 
 
 ## Deploy on Cloudflare Pages
 
-This site is static (no build step). Use **Cloudflare Pages** with your domain **quadiqadvisory.com**.
+This site is static, deployed via **Cloudflare Pages** with your domain **quadiqadvisory.com**. It has one small build step — regenerating blog pages from `content/posts/*.json` — so that content published through `/admin` (see above) automatically turns into real pages, not just JSON commits.
 
 ### Option A — Deploy from Git (recommended)
 
@@ -80,7 +109,7 @@ This site is static (no build step). Use **Cloudflare Pages** with your domain *
    |---------|--------|
    | **Production branch** | `main` |
    | **Framework preset** | None |
-   | **Build command** | *(leave empty)* |
+   | **Build command** | `python3 scripts/generate-blog.py` |
    | **Build output directory** | `/` *(project root — where `index.html` lives)* |
 
 4. Click **Save and Deploy**. You’ll get a `*.pages.dev` URL to preview.

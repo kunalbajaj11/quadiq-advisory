@@ -161,4 +161,74 @@
   );
 
   revealEls.forEach((el) => revealObserver.observe(el));
+
+  /* FAQ (rendered from content/faq.json, editable via the /admin CMS) */
+  const faqList = document.getElementById("faq-list");
+  if (faqList) {
+    const escapeHtml = (text) =>
+      String(text || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
+    // Renders the small Markdown subset the CMS's answer field allows:
+    // **bold**, *italic*, and [label](url) links. Mirrors inline_markdown()
+    // in scripts/generate-blog.py.
+    const renderInlineMarkdown = (text) => {
+      let out = escapeHtml(text);
+      out = out.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+      out = out.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "<em>$1</em>");
+      out = out.replace(/(?<!\w)_(.+?)_(?!\w)/g, "<em>$1</em>");
+      out = out.replace(/\[(.+?)\]\((.+?)\)/g, (_m, label, url) => `<a href="${escapeHtml(url)}">${label}</a>`);
+      return out;
+    };
+    const stripMarkdown = (text) => String(text || "").replace(/[*_]/g, "").replace(/\[(.+?)\]\(.+?\)/g, "$1");
+
+    fetch("content/faq.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load FAQ data");
+        return res.json();
+      })
+      .then((data) => {
+        const items = data && data.items;
+        if (!Array.isArray(items) || !items.length) return;
+
+        faqList.innerHTML = items
+          .map(
+            (item) => `
+          <details class="faq-item">
+            <summary class="faq-question">${escapeHtml(item.question)}</summary>
+            <div class="faq-answer">
+              <p>${renderInlineMarkdown(item.answer)}</p>
+            </div>
+          </details>`
+          )
+          .join("");
+
+        faqList.querySelectorAll(".faq-item").forEach((el) => revealObserver.observe(el));
+
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": "https://quadiqadvisory.com/#faq",
+          mainEntity: items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: stripMarkdown(item.answer),
+            },
+          })),
+        };
+
+        const schemaScript = document.createElement("script");
+        schemaScript.type = "application/ld+json";
+        schemaScript.textContent = JSON.stringify(faqSchema);
+        document.head.appendChild(schemaScript);
+      })
+      .catch(() => {
+        /* leave the section empty if content/faq.json fails to load */
+      });
+  }
 })();
